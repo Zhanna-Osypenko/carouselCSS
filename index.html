@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Infinite Carousel</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      h1 {
+        color: red;
+      }
+
+      .wrapper {
+        overflow: hidden;
+        background-color: grey;
+        width: 100%;
+      }
+
+      .carousel {
+        width: 100vw;
+        display: flex;
+        flex-shrink: 0;
+        animation: move-carousel 10s linear infinite;
+      }
+
+      h2 {
+        color: white;
+        white-space: nowrap;
+        padding: 0 4rem;
+        flex-shrink: 0;
+        width: calc(100vw / 7);
+      }
+
+      @keyframes move-carousel {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-100%);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Hello carousel CSS</h1>
+    <div class="wrapper">
+      <div class="carousel">
+        <h2>=== 1 ===</h2>
+        <h2>=== 2 ===</h2>
+        <h2>=== 3 ===</h2>
+        <h2>=== 4 ===</h2>
+        <h2>=== 5 ===</h2>
+        <h2>=== 6 ===</h2>
+        <h2>=== 7 ===</h2>
+        <!-- Копия элементов для создания бесконечной карусели -->
+        <h2>=== 1 ===</h2>
+        <h2>=== 2 ===</h2>
+        <h2>=== 3 ===</h2>
+        <h2>=== 4 ===</h2>
+        <h2>=== 5 ===</h2>
+        <h2>=== 6 ===</h2>
+        <h2>=== 7 ===</h2>
+      </div>
+    </div>
+  </body>
+</html>
