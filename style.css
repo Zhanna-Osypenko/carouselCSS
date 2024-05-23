@@ -2,59 +2,37 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  /* background: #f2f2f2; */
 }
 
 h1 {
   color: red;
+  padding: 20px;
+  text-align: center;
 }
 
+//========= carousel №1 ===============
 .wrapper {
   overflow: hidden;
-  background-color: grey;
+  background: black;
   width: 100%;
 }
 
 .carousel {
+  /* width: 100vw; */
+  /* width: 100%; */
+  /* overflow: hidden; */
   display: flex;
+  flex-shrink: 0;
   animation: move-carousel 10s linear infinite;
 }
 
 h2 {
-  color: white;
-  white-space: nowrap;
-  padding: 0 6rem;
-}
-
-@keyframes move-carousel {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
-/* * {
-  margin: 0;
-  box-sizing: border-box;
-}
-
-h1 {
   color: red;
-}
-
-.wrapper {
-  display: flex;
-  justify-content: flex-start;
-  background: grey;
-  overflow: hidden;
-}
-
-h2 {
-  color: white;
   white-space: nowrap;
-  padding: 0 6rem;
-  animation: move-carousel 6000ms linear infinite;
+  padding: 0 4rem;
+  flex-shrink: 0;
+  width: calc(100vw / 7);
 }
 
 @keyframes move-carousel {
@@ -64,38 +42,56 @@ h2 {
   100% {
     transform: translateX(-100%);
   }
-} */
-
-/* * {
-  margin: 0;
-  box-sizing: border-box;
 }
 
-h1 {
-  color: red;
-}
-
-.carousel {
-  overflow: hidden;
-  background: grey;
-}
-
-.wrapper {
-  display: flex;
-  animation: move-carousel 12s linear infinite;
-}
-
-h2 {
-  color: white;
-  white-space: nowrap;
-  padding: 0 6rem;
-}
-
-@keyframes move-carousel {
-  0% {
+//carousel №2
+@keyframes slide {
+  from {
     transform: translateX(0);
   }
-  100% {
+  to {
     transform: translateX(-100%);
   }
-} */
+}
+
+.logos {
+  overflow: hidden;
+  padding: 60px 0;
+  background: white;
+  white-space: nowrap;
+  position: relative;
+}
+
+.logos:before,
+.logos:after {
+  position: absolute;
+  top: 0;
+  width: 250px;
+  height: 100%;
+  content: "";
+  z-index: 2;
+}
+
+.logos:before {
+  left: 0;
+  background: linear-gradient(to left, rgba(255, 255, 255, 0), white);
+}
+
+.logos:after {
+  right: 0;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
+}
+
+.logos:hover .logos-slide {
+  animation-play-state: paused;
+}
+
+.logos-slide {
+  display: inline-block;
+  animation: 35s slide infinite linear;
+}
+
+.logos-slide img {
+  height: 50px;
+  margin: 0 40px;
+}
