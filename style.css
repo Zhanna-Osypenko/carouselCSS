@@ -2,62 +2,28 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* background: #f2f2f2; */
 }
 
 h1 {
-  color: red;
   padding: 20px;
   text-align: center;
+  color: white;
+  font-family: sans-serif;
+  font-size: 36px;
+  margin: 40px 0;
 }
 
-//========= carousel №1 ===============
-.wrapper {
-  overflow: hidden;
-  background: black;
-  width: 100%;
-}
-
-.carousel {
-  /* width: 100vw; */
-  /* width: 100%; */
-  /* overflow: hidden; */
-  display: flex;
-  flex-shrink: 0;
-  animation: move-carousel 10s linear infinite;
-}
-
-h2 {
-  color: red;
-  white-space: nowrap;
-  padding: 0 4rem;
-  flex-shrink: 0;
-  width: calc(100vw / 7);
-}
-
-@keyframes move-carousel {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
-//carousel №2
-@keyframes slide {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-100%);
-  }
+.infinity-section {
+  padding-top: 100px;
+  background: #001918;
+  height: 100vh;
 }
 
 .logos {
   overflow: hidden;
   padding: 60px 0;
-  background: white;
+
+  background: #f2f2f2;
   white-space: nowrap;
   position: relative;
 }
@@ -74,24 +40,108 @@ h2 {
 
 .logos:before {
   left: 0;
-  background: linear-gradient(to left, rgba(255, 255, 255, 0), white);
+  /* background: linear-gradient(to left, rgba(255, 255, 255, 0), white); */
+  background: linear-gradient(to left, rgba(255, 255, 255, 0), #01978f);
 }
 
 .logos:after {
   right: 0;
-  background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
+  /* background: linear-gradient(to right, rgba(255, 255, 255, 0), white); */
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), #01978f);
 }
 
 .logos:hover .logos-slide {
+  cursor: pointer;
   animation-play-state: paused;
 }
+.logos-right,
+.logos-left {
+  background-color: #00d2c9;
+}
 
-.logos-slide {
+.logos-right .logos-slide {
   display: inline-block;
-  animation: 35s slide infinite linear;
+  animation: 35s slide-right infinite linear;
+}
+
+@keyframes slide-right {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+.logos-left .logos-slide {
+  display: inline-block;
+  animation: 35s slide-left infinite linear;
+}
+
+@keyframes slide-left {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
 }
 
 .logos-slide img {
   height: 50px;
   margin: 0 40px;
+  filter: invert(1);
+}
+
+header {
+  background: #01b5af;
+  background: #001918;
+}
+
+.header-section {
+  height: 100vh;
+  background-image: url("images/people.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  clip-path: polygon(0 0, 100% 0%, 100% 90%, 50% 99%, 0 90%);
+  position: relative; /* Ensure this element is positioned */
+  z-index: 5;
+}
+
+.header-box {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.header-box button {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 50px;
+  padding: 10px 20px;
+  border-radius: 50%; /* Задаем радиус скругления, равный половине размера кнопки */
+  background-color: #00d2c9; /* Цвет фона кнопки (по вашему выбору) */
+  border: none; /* Убираем границу кнопки */
+  cursor: pointer;
+}
+
+.header-section__hover {
+  position: absolute;
+  bottom: 150px;
+  left: 0;
+  right: 0;
+  height: 300px;
+  background-color: white;
+  color: #00d2c9;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 220px;
+  transition: bottom 0.5s ease;
+  z-index: 2;
+  clip-path: polygon(0 0, 100% 0%, 100% 75%, 50% 99%, 0 75%);
+}
+
+.header-section__hover.visible {
+  bottom: -150px;
 }
