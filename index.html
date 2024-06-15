@@ -4,66 +4,150 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Infinite Carousel</title>
-    <link rel="stylesheet" href="style.css" />
-    <script src="script.js"></script>
-  </head>
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      h1 {
+        color: red;
+        padding: 20px;
+        text-align: center;
+      }
+
+      /* ========= Carousel №1 ============ */
+      .wrapper {
+        overflow: hidden;
+        background: rgb(204, 252, 204);
+        width: 100%;
+      }
+
+      .carousel {
+        display: flex;
+        flex-shrink: 0;
+        animation: move-carousel 10s linear infinite;
+      }
+
+      h2 {
+        color: red;
+        white-space: nowrap;
+        padding: 2rem 4rem;
+        flex-shrink: 0;
+        width: calc(100vw / 7);
+      }
+
+      @keyframes move-carousel {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-100%);
+        }
+      }
+
+      /* ========= Carousel №2 ============ */
+
+      @keyframes slide {
+        from {
+          transform: translateX(-100%);
+        }
+        to {
+          transform: translateX(0%);
+        }
+      }
+
+      .logos {
+        overflow: hidden;
+        padding: 60px 0;
+
+        background: #f2f2f2;
+        white-space: nowrap;
+        position: relative;
+      }
+
+      .logos:before,
+      .logos:after {
+        position: absolute;
+        top: 0;
+        width: 250px;
+        height: 100%;
+        content: "";
+        z-index: 2;
+      }
+
+      .logos:before {
+        left: 0;
+        background: linear-gradient(to left, rgba(255, 255, 255, 0), white);
+      }
+
+      .logos:after {
+        right: 0;
+        background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
+      }
+
+      .logos:hover .logos-slide {
+        cursor: pointer;
+        animation-play-state: paused;
+      }
+
+      .logos-slide {
+        display: inline-block;
+        animation: 35s slide infinite linear;
+      }
+
+      .logos-slide img {
+        height: 50px;
+        margin: 0 40px;
+      }
+    </style></head
+  >
   <body>
-    <header>
-      <div class="header-section header-box">
-        <button id="toggleButton">&#8595;</button>
+    <h1>Carousel CSS№1</h1>
+    <div class="wrapper">
+      <div class="carousel">
+        <h2>=== 1 ===</h2>
+        <h2>=== 2 ===</h2>
+        <h2>=== 3 ===</h2>
+        <h2>=== 4 ===</h2>
+        <h2>=== 5 ===</h2>
+        <h2>=== 6 ===</h2>
+        <h2>=== 7 ===</h2>
+        <!-- Копия элементов для создания бесконечной карусели -->
+        <h2>=== 1 ===</h2>
+        <h2>=== 2 ===</h2>
+        <h2>=== 3 ===</h2>
+        <h2>=== 4 ===</h2>
+        <h2>=== 5 ===</h2>
+        <h2>=== 6 ===</h2>
+        <h2>=== 7 ===</h2>
       </div>
-      <div class="header-section__hover" id="hoverSection">
-        Hello, I am HOVER!!!</div
-      >
-    </header>
-
-    <div class="infinity-section"
-      ><h1>Companies where our students work</h1>
-      <div class="logos logos-left">
-        <div class="logos-slide">
-          <img src="./logos/3m.svg" />
-          <img src="./logos/barstool-store.svg" />
-          <img src="./logos/budweiser.svg" />
-          <img src="./logos/buzzfeed.svg" />
-          <img src="./logos/forbes.svg" />
-          <img src="./logos/macys.svg" />
-          <img src="./logos/menshealth.svg" />
-          <img src="./logos/mrbeast.svg" />
-        </div>
-        <div class="logos-slide">
-          <img src="./logos/3m.svg" />
-          <img src="./logos/barstool-store.svg" />
-          <img src="./logos/budweiser.svg" />
-          <img src="./logos/buzzfeed.svg" />
-          <img src="./logos/forbes.svg" />
-          <img src="./logos/macys.svg" />
-          <img src="./logos/menshealth.svg" />
-          <img src="./logos/mrbeast.svg" />
-        </div>
+    </div>
+    <h1>Carousel CSS№2</h1>
+    <div class="logos">
+      <div class="logos-slide">
+        <img src="./logos/3m.svg" />
+        <img src="./logos/barstool-store.svg" />
+        <img src="./logos/budweiser.svg" />
+        <img src="./logos/buzzfeed.svg" />
+        <img src="./logos/forbes.svg" />
+        <img src="./logos/macys.svg" />
+        <img src="./logos/menshealth.svg" />
+        <img src="./logos/mrbeast.svg" />
       </div>
-      <!-- <h1>Carousel CSS№2-</h1> -->
-      <div class="logos logos-right">
-        <div class="logos-slide">
-          <img src="./logos/3m.svg" />
-          <img src="./logos/barstool-store.svg" />
-          <img src="./logos/budweiser.svg" />
-          <img src="./logos/buzzfeed.svg" />
-          <img src="./logos/forbes.svg" />
-          <img src="./logos/macys.svg" />
-          <img src="./logos/menshealth.svg" />
-          <img src="./logos/mrbeast.svg" />
-        </div>
 
-        <div class="logos-slide">
-          <img src="./logos/3m.svg" />
-          <img src="./logos/barstool-store.svg" />
-          <img src="./logos/budweiser.svg" />
-          <img src="./logos/buzzfeed.svg" />
-          <img src="./logos/forbes.svg" />
-          <img src="./logos/macys.svg" />
-          <img src="./logos/menshealth.svg" />
-          <img src="./logos/mrbeast.svg" />
-        </div> </div
-    ></div>
+      <div class="logos-slide">
+        <img src="./logos/3m.svg" />
+        <img src="./logos/barstool-store.svg" />
+        <img src="./logos/budweiser.svg" />
+        <img src="./logos/buzzfeed.svg" />
+        <img src="./logos/forbes.svg" />
+        <img src="./logos/macys.svg" />
+        <img src="./logos/menshealth.svg" />
+        <img src="./logos/mrbeast.svg" />
+      </div>
+    </div>
   </body>
 </html>
